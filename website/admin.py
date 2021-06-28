@@ -10,7 +10,6 @@ class WebsiteAdmin(admin.ModelAdmin):
 
     def images_view(self, obj):
         return mark_safe(f'<img src="{obj.logo.url}" style="height:50px; width:100px">')
-
     images_view.short_description = 'Aperçu des images'
 
 
@@ -21,10 +20,10 @@ class NewletterAdmin(admin.ModelAdmin):
 
 @admin.register(models.Configuration)
 class ConfigurationAdmin(admin.ModelAdmin):
-    list_display = ('copyrights', 'date_update', 'date_add', 'status')
+    list_display = ('copyrights','description_newletter', 'date_update', 'date_add', 'status')
     list_editable = ('status',)
 
 @admin.register(models.SocialIcon)
 class SocialIconAdmin(admin.ModelAdmin):
-    list_display = ('nom', 'icone', 'lien', 'date_update', 'date_add', 'status')
+    list_display = ('nom','icone', 'lien', 'date_update', 'date_add', 'status')
     list_editable = ('status',)
